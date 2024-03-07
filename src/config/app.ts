@@ -1,4 +1,4 @@
-import { Network, StakingToken, RewardToken, DEFAULT_RPC_ENDPOINT } from '../constants'
+import { Network, DEFAULT_RPC_ENDPOINT } from '../constants'
 import {
   AppGeysersList,
   NetworkConfig,
