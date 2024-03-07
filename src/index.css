@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
+
+body {
+}
+
+body {
+  background-color: #f8f0e5;
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+  height: 100%;
+}
+
+/* makes sure that the onboard modals do not get overlayed by background elements */
+.bn-onboard-custom {
+  z-index: 100;
+}
+
+.footerGradient {
+  background: linear-gradient(248.86deg, #506ff3 1%, #cdf3a2 15%, #21e1e1 30%, #d69bdf 50%, #506ff3 81%);
+}
+
+.seamlessGradient {
+  background: linear-gradient(248.86deg, #cdf3a2 5%, #21e1e1 15%, #d69bdf 40%, #506ff3 91%);
+}
