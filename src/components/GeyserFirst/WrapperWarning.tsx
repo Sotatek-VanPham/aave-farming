@@ -16,7 +16,7 @@ export const WrapperWarning = () => (
   <FlexDiv>
     <Text>
       <div className="tracking-tigher mt-2 flex font-bold sm:text-3xl text-2xl text-surface mb-2">NOTE:</div>
-      Depositing sTokens into the Farms will decrease your collateral health factor. If you are borrowing on Seamless,
+      Depositing sTokens into the Farms will decrease your collateral health factor. If you are borrowing on Colend,
       be careful when staking sTokens, in order to avoid unnecessary liquidations.
       <br />
       <br />

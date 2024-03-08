@@ -17,7 +17,7 @@ export const Header = () => {
       <LeftContainer>
         <LogoSpan>
           <a href={SEAMLESS_INTERFACE_URL}>
-            <LogoImage src={logo} alt="Seamless" />
+            <LogoImage src={logo} alt="Colend" />
           </a>
         </LogoSpan>
         <LeftLinkContainer>

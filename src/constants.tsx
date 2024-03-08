@@ -82,9 +82,9 @@ export const GET_APY_STAKE_MSG = () => (
     <br />
     <br />
     For the OG Points Farms, APY refers solely to the annualized rate of earning OG Points for your participation in the
-    Seamless ecosystem. OG Points are on-chain, nontransferable utility points that have no monetary value, cannot be
+    Colend ecosystem. OG Points are on-chain, nontransferable utility points that have no monetary value, cannot be
     traded or transferred among holders, and cannot be exchanged for cash or any other type of monetary value, they
-    represent participation in the Seamless ecosystem only. No other rewards are offered hereby.
+    represent participation in the Colend ecosystem only. No other rewards are offered hereby.
   </div>
 )
 
@@ -96,9 +96,9 @@ export const GET_APY_NO_STAKE_MSG = ({ days = '1' }) => (
     <br />
     <br />
     For the OG Points Farms, APY refers solely to the annualized rate of earning OG Points for your participation in the
-    Seamless ecosystem. OG Points are on-chain, nontransferable utility points that have no monetary value, cannot be
+    Colend ecosystem. OG Points are on-chain, nontransferable utility points that have no monetary value, cannot be
     traded or transferred among holders, and cannot be exchanged for cash or any other type of monetary value, they
-    represent participation in the Seamless ecosystem only. No other rewards are offered hereby.
+    represent participation in the Colend ecosystem only. No other rewards are offered hereby.
   </div>
 )
 
