@@ -7,7 +7,7 @@ import { Mode } from '../constants'
 export const Body = () => {
   const { mode } = useContext(AppContext)
   return (
-    <div className="bg-slate-500 h-[100%] w-screen">
+    <div className="bg-transparent h-[100%] w-screen">
       {mode === Mode.VAULTS ? <VaultFirstContainer /> : <GeyserFirstContainer />}
     </div>
   )

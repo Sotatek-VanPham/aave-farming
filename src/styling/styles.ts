@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 `
 
 export const ResponsiveHeader = css`
-  ${tw`text-base sm:text-lg`}
+  ${tw`text-base `}
 `
 
 export const ResponsiveText = css`

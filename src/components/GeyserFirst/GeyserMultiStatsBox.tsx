@@ -19,10 +19,10 @@ interface Props {
 
 export const GeyserMultiStatsBox: React.FC<Props> = ({ name, stats, interpolate, containerClassName }) => {
 
-  const displayVal = (v:number):string => interpolate ? interpolate(v) : `${v}`
+  const displayVal = (v: number): string => interpolate ? interpolate(v) : `${v}`
   const statsContent = stats.map((s, index) => (
     <React.Fragment key={s.units}>
-       <GeyserStatsBoxValue>
+      <GeyserStatsBoxValue>
         <animated.span>
           {displayVal(s.value)}
         </animated.span>
@@ -31,10 +31,10 @@ export const GeyserMultiStatsBox: React.FC<Props> = ({ name, stats, interpolate,
           {s.units}
         </GeyserStatsBoxUnits>
       </GeyserStatsBoxValue>
-      {stats.length > 1 && index !== stats.length-1 ? '\u00a0+\u00a0' : ''}
+      {stats.length > 1 && index !== stats.length - 1 ? '\u00a0+\u00a0' : ''}
     </React.Fragment>
   ))
-  
+
   return (
     <GeyserStatsBoxContainer className={containerClassName}>
       <GeyserStatsBoxLabel>{name}</GeyserStatsBoxLabel>
@@ -46,7 +46,8 @@ export const GeyserMultiStatsBox: React.FC<Props> = ({ name, stats, interpolate,
 }
 
 const GeyserStatsBoxContainer = styled.div`
-  ${tw`sm:mr-5 sm:p-3 sm:h-72px`}
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  ${tw`sm:mr-5 sm:p-3 sm:h-72px text-white`}
 `
 
 const GeyserStatsBoxLabel = styled.span`

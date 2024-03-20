@@ -11,7 +11,9 @@ export const HeaderWalletButton = () => {
 
   return (
     <ButtonContainer>
-      <Button onClick={selectWallet}>
+      <Button onClick={selectWallet}
+        className='bg-gray bg-opacity-70 '
+      >
         <StyledParagraph autoCapitalize="yes" color={NamedColors.WHITE}>
           {address ? displayAddr(address) : 'CONNECT'}
         </StyledParagraph>
@@ -21,14 +23,14 @@ export const HeaderWalletButton = () => {
 }
 
 const ButtonContainer = styled.div`
-  ${tw`w-6/12 flex`}
+  ${tw`w-6/12 flex `}
 `
 
 // const pink = `bg-footer hover:bg-[#FF6ED7/50]`
 const Button = styled.button`
-  ${tw`w-full px-8 py-4 rounded-bl-2xl float-right bg-lightBlue`}
-  ${tw`sm:px-8 sm:py-5 md:pr-12 lg:px-16`}
+  ${tw`w-full px-8 py-2 float-right h-fit rounded`}
+  ${tw``}
 `
 const StyledParagraph = styled(Paragraph)`
-  ${tw`md:text-xs lg:text-lg`}
+  ${tw`text-xs font-bold`}
 `
