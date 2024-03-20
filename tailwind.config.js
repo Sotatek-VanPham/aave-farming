@@ -19,7 +19,7 @@ module.exports = {
     colors: {
       // TODO
       primary: '#DA3E3E',
-      secondary: '#FFFFFF',
+      secondary: '#484A77',
       lightGray: '#DDDDDD',
       gray: '#1B1B1D',
       mediumGray: '#4A4A4A',
@@ -38,6 +38,7 @@ module.exports = {
       cream: '#F8F0E5',
       lightBlue: '#3AB0FF',
       surface: '#77037B',
+      textGray: '#999EBA'
     },
     container: {
       center: true,

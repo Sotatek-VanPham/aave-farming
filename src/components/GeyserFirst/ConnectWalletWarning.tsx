@@ -26,7 +26,7 @@ const Content = styled.div`
 `
 
 const ConnectWalletWarningContainer = styled.div`
-  ${tw`h-80px shadow-all-xs mt-1 mb-5 border border-primary rounded flex flex-row tracking-wider`}
+  ${tw`h-80px shadow-all-xs mt-1 mb-5 border border-primary rounded-md flex flex-row tracking-wider`}
 `
 
 const ColoredDiv = styled.div`
@@ -39,7 +39,7 @@ const Img = styled.img`
 `
 
 const Message = styled.span`
-  ${tw`my-auto text-primary`}
+  ${tw`my-auto text-primary text-xs`}
 `
 
 const ButtonWrapper = styled.div`
@@ -47,7 +47,7 @@ const ButtonWrapper = styled.div`
 `
 
 const Button = styled.button`
-  ${tw`uppercase font-bold bg-primary text-secondary w-full h-full`}
+  ${tw`uppercase font-semibold text-sm bg-primary text-black w-full h-full`}
   ${tw`sm:text-lg`}
 `
 

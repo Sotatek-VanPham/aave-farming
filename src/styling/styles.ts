@@ -35,11 +35,11 @@ export const Ellipsis = css`
 // typography
 
 export const CardLabel = styled.span`
-  ${tw`flex capitalize text-black font-light`}
+  ${tw`flex capitalize text-white font-light`}
 `
 
 export const CardValue = styled.span`
-  ${tw`flex flex-wrap text-base whitespace-pre-wrap`}
+  ${tw`flex flex-wrap text-base whitespace-pre-wrap text-white`}
 `
 
 export const ModalButton = styled(Button)`

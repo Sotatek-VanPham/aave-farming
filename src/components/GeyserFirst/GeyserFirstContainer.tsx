@@ -34,7 +34,7 @@ export const GeyserFirstContainer = () => {
   )
 }
 const StyledOverlay = styled(Overlay)`
-  ${tw` text-black`}
+  ${tw` text-white bg-gray bg-opacity-40`}
 `
 
 const Container = styled.div`

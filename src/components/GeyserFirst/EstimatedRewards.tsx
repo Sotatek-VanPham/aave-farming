@@ -6,10 +6,10 @@ import { StatsContext } from 'context/StatsContext'
 import { safeNumeral } from 'utils/numeral'
 import BigNumber from 'bignumber.js'
 import { BigNumber as BigInt } from 'ethers'
-import { Tooltip } from 'components/Tooltip'
+// import { Tooltip } from 'components/Tooltip'
 import { CardValue, CardLabel } from 'styling/styles'
 import { GeyserContext } from 'context/GeyserContext'
-import { GET_ESTIMATED_REWARDS_MSG } from '../../constants'
+// import { GET_ESTIMATED_REWARDS_MSG } from '../../constants'
 
 interface Props {
   parsedUserInput: BigInt
@@ -34,7 +34,7 @@ export const EstimatedRewards: React.FC<Props> = ({ parsedUserInput }) => {
   } = useContext(StatsContext)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const aggregateDepositUSD = new BigNumber(parsedUserInput.toString())
         .div(10 ** stakingTokenDecimals)
         .plus(currentStake)
@@ -54,11 +54,11 @@ export const EstimatedRewards: React.FC<Props> = ({ parsedUserInput }) => {
       <RewardsTextContainer>
         <CardLabel>
           <small>Aggregate Deposit / Estimated Rewards</small>
-          <Tooltip
+          {/* <Tooltip
             classNames="my-auto ml-2 normal-case tracking-wide"
             panelClassnames="-translate-x-3/4 xs:left-1/2 xs:-translate-x-1/2"
             messages={[{ title: 'Estimated Rewards', body: GET_ESTIMATED_REWARDS_MSG() }]}
-          />
+          /> */}
         </CardLabel>
         <CardValue>
           {safeNumeral(deposits, '0')} / [ {safeNumeral(rewards, '0.00')} {symbol}{' '}
@@ -92,7 +92,7 @@ export const EstimatedRewards: React.FC<Props> = ({ parsedUserInput }) => {
 }
 
 const EstimatedRewardsContainer = styled.div`
-  ${tw`h-120px shadow-all-xs my-6 border border-lightGray rounded flex flex-row tracking-wide text-black`}
+  ${tw`h-120px shadow-all-xs my-6 border border-white border-opacity-20 rounded flex flex-row tracking-wide text-black`}
 `
 
 const ColoredDiv = styled.div`

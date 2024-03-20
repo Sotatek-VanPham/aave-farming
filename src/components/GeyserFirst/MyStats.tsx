@@ -109,7 +109,7 @@ export const MyStats = () => {
 }
 
 const MyStatsContainer = styled.div`
-  ${tw`px-5 my-5 pr-0 border-r-2 border-lightGray`}
+  ${tw`px-5 my-5 pr-0 border-r-2 border-white border-opacity-10`}
 `
 
 const Header = styled.h3`

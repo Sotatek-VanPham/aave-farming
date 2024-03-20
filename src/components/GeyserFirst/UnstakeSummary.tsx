@@ -33,7 +33,7 @@ export const UnstakeSummary: React.FC<Props> = ({ userInput, parsedUserInput }) 
   const rewardUSD = rewardAmount * rewardTokenPrice + bonusRewards.reduce((m, b) => m + rewardsShare * b.value, 0)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setRewardAmount(await computeRewardsFromUnstake(parsedUserInput))
       setRewardsShare(await computeRewardsShareFromUnstake(parsedUserInput))
     })()
@@ -81,11 +81,11 @@ const Container = styled.div`
 `
 
 const SummaryCard = styled.div`
-  ${tw`h-120px shadow-all-xs border border-lightGray rounded flex flex-col my-auto tracking-wide`}
+  ${tw`h-120px shadow-all-xs border border-white border-opacity-20 rounded flex flex-col my-auto tracking-wide`}
 `
 
 const Label = styled(CardLabel)`
-  ${tw`text-sm sm:text-base text-left`}
+  ${tw`text-sm sm:text-base text-left text-white`}
 `
 
 const Value = styled(CardValue)`
