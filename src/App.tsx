@@ -43,7 +43,7 @@ function App() {
             <VaultContextProvider>
               <WalletContextProvider>
                 <StatsContextProvider>
-                  <div className="flex flex-col gap-4 bg-image bg-center bg-cover">
+                  <div className="flex flex-col gap-4">
                     <Header />
                     <DropdownsContainer />
                     <Body />

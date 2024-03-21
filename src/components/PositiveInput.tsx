@@ -64,11 +64,12 @@ const Input = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+  flex-grow: 1;
 
   ${tw`w-10/12 font-semibold tracking-wider rounded-lg p-3 text-sm bg-gray placeholder:text-textGray`}
   ${tw`focus:outline-none`}
 `
 
 const Button = styled.button`
-  ${tw`uppercase focus:outline-none p-1 text-sm w-2/12 text-white bg-0D23EE bg-opacity-5 bg-primary`}
+  ${tw`uppercase focus:outline-none p-1 text-sm w-2/12 text-white bg-0D23EE bg-opacity-5 bg-primary flex-shrink-0`}
 `

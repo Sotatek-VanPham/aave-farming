@@ -25,7 +25,7 @@ export const ResponsiveSubText = css`
 `
 
 export const Centered = styled.div`
-  ${tw`h-full w-full m-auto self-center`}
+  ${tw`h-full w-full m-auto self-center bg-image bg-center bg-cover`}
 `
 
 export const Ellipsis = css`

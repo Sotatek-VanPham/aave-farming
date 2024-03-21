@@ -47,6 +47,7 @@ const ButtonWrapper = styled.div`
 `
 
 const Button = styled.button`
+  outline: none !important;
   ${tw`uppercase font-semibold text-sm bg-primary text-black w-full h-full`}
   ${tw`sm:text-lg`}
 `

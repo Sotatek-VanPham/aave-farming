@@ -38,7 +38,7 @@ const StyledOverlay = styled(Overlay)`
 `
 
 const Container = styled.div`
-  ${tw`text-center m-auto mb-20 flex flex-col flex-wrap w-full`}
+  ${tw`text-center m-auto  flex flex-col flex-wrap w-full`}
   ${tw`sm:w-sm`}
 `
 
