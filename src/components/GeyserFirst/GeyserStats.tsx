@@ -28,7 +28,7 @@ export const GeyserStats = () => {
       <Header>Farm Stats</Header>
       <GeyserStatsBoxContainer>
         <GeyserStatsBox
-          containerClassName="sm:bg-paleBlue sm:border sm:border-lightGray sm:rounded-sm"
+          containerClassName="sm:border bg-gray bg-opacity-40 sm:rounded-md"
           name="Program Duration"
           value={duration / DAY_IN_SEC}
           units="days left"
@@ -37,7 +37,7 @@ export const GeyserStats = () => {
       </GeyserStatsBoxContainer>
       <GeyserStatsBoxContainer>
         <GeyserStatsBox
-          containerClassName="sm:bg-paleBlue sm:border sm:border-lightGray sm:rounded-sm"
+          containerClassName="sm:border bg-gray bg-opacity-40 sm:rounded-md"
           name="Total Deposits"
           value={totalDeposit}
           units="USD"
@@ -46,7 +46,7 @@ export const GeyserStats = () => {
       </GeyserStatsBoxContainer>
       <GeyserStatsBoxContainer>
         <GeyserMultiStatsBox
-          containerClassName="sm:bg-paleBlue sm:border sm:border-lightGray sm:rounded-sm"
+          containerClassName=" sm:border bg-gray bg-opacity-40 sm:rounded-md "
           name="Total Rewards"
           stats={rewardsToShow}
           interpolate={(val) => safeNumeral(val, '0,0.00')}
@@ -57,12 +57,15 @@ export const GeyserStats = () => {
 }
 
 const GeyserStatsContainer = styled.div`
+  background-color: transparent;
   ${tw`px-5 my-5 pr-0`}
+
+  
 `
 
 const Header = styled.h3`
   ${ResponsiveText}
-  ${tw`uppercase flex font-medium text-black`}
+  ${tw`uppercase flex font-medium text-white`}
   ${tw`sm:pl-3`}
 `
 

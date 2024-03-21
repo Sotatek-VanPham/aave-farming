@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 `
 
 export const ResponsiveHeader = css`
-  ${tw`text-base sm:text-lg`}
+  ${tw`text-base `}
 `
 
 export const ResponsiveText = css`
@@ -25,7 +25,7 @@ export const ResponsiveSubText = css`
 `
 
 export const Centered = styled.div`
-  ${tw`h-full w-full m-auto self-center`}
+  ${tw`h-full w-full m-auto self-center bg-image bg-center bg-cover`}
 `
 
 export const Ellipsis = css`
@@ -35,11 +35,11 @@ export const Ellipsis = css`
 // typography
 
 export const CardLabel = styled.span`
-  ${tw`flex capitalize text-black font-light`}
+  ${tw`flex capitalize text-white font-light`}
 `
 
 export const CardValue = styled.span`
-  ${tw`flex flex-wrap text-base whitespace-pre-wrap`}
+  ${tw`flex flex-wrap text-base whitespace-pre-wrap text-white`}
 `
 
 export const ModalButton = styled(Button)`

@@ -1,25 +1,25 @@
-import { useContext, useCallback } from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components/macro'
 import tw from 'twin.macro'
 import { GeyserContext } from 'context/GeyserContext'
 import { StatsContext } from 'context/StatsContext'
 import { ResponsiveText } from 'styling/styles'
 import { safeNumeral } from 'utils/numeral'
-import { Tooltip } from 'components/Tooltip'
+// import { Tooltip } from 'components/Tooltip'
 import { GeyserStatsBox } from './GeyserStatsBox'
 import { GeyserMultiStatsBox } from './GeyserMultiStatsBox'
-import {
-  GET_APY_NO_STAKE_MSG,
-  GET_APY_STAKE_MSG,
-  GET_CURRENT_REWARDS_MSG,
-  GET_REWARD_MULTIPLIER_MSG,
-} from '../../constants'
+// import {
+//   GET_APY_NO_STAKE_MSG,
+//   GET_APY_STAKE_MSG,
+//   GET_CURRENT_REWARDS_MSG,
+//   GET_REWARD_MULTIPLIER_MSG,
+// } from '../../constants'
 
 export const MyStats = () => {
   const {
-    userStats: { apy, currentMultiplier, maxMultiplier, currentReward, currentRewardShare },
+    userStats: { apy, currentMultiplier, currentReward, currentRewardShare },
     vaultStats: { currentStake },
-    geyserStats: { calcPeriodInDays, bonusRewards },
+    geyserStats: { bonusRewards },
   } = useContext(StatsContext)
 
   const {
@@ -29,29 +29,29 @@ export const MyStats = () => {
     },
   } = useContext(GeyserContext)
 
-  const getTooltipMessages = useCallback(
-    () => [
-      {
-        title: 'APY',
-        body:
-          currentStake > 0
-            ? GET_APY_STAKE_MSG()
-            : GET_APY_NO_STAKE_MSG({ days: safeNumeral(calcPeriodInDays || 30, '0.0') }),
-      },
-      {
-        title: 'Reward Multiplier',
-        body: GET_REWARD_MULTIPLIER_MSG({
-          days: safeNumeral(calcPeriodInDays || 30, '0.0'),
-          multiplier: safeNumeral(maxMultiplier || 3, '0.0'),
-        }),
-      },
-      {
-        title: 'Current Rewards',
-        body: GET_CURRENT_REWARDS_MSG(),
-      },
-    ],
-    [currentStake],
-  )
+  // const getTooltipMessages = useCallback(
+  //   () => [
+  //     {
+  //       title: 'APY',
+  //       body:
+  //         currentStake > 0
+  //           ? GET_APY_STAKE_MSG()
+  //           : GET_APY_NO_STAKE_MSG({ days: safeNumeral(calcPeriodInDays || 30, '0.0') }),
+  //     },
+  //     {
+  //       title: 'Reward Multiplier',
+  //       body: GET_REWARD_MULTIPLIER_MSG({
+  //         days: safeNumeral(calcPeriodInDays || 30, '0.0'),
+  //         multiplier: safeNumeral(maxMultiplier || 3, '0.0'),
+  //       }),
+  //     },
+  //     {
+  //       title: 'Current Rewards',
+  //       body: GET_CURRENT_REWARDS_MSG(),
+  //     },
+  //   ],
+  //   [currentStake],
+  // )
 
   const rewardsToShow = [{ value: currentReward, units: rewardTokenSymbol }].concat(
     bonusRewards.map((r) => ({ value: currentRewardShare * r.balance, units: r.symbol })),
@@ -61,11 +61,11 @@ export const MyStats = () => {
     <MyStatsContainer>
       <Header>
         My Stats{' '}
-        <Tooltip
+        {/* <Tooltip
           classNames="my-auto ml-2 normal-case tracking-wide bg-white"
           panelClassnames="-translate-x-1/4"
           messages={getTooltipMessages()}
-        />
+        /> */}
       </Header>
       <GeyserStatsContainer>
         <GeyserStatsBoxContainer>
@@ -87,7 +87,7 @@ export const MyStats = () => {
 
         <GeyserStatsBoxContainer>
           <GeyserStatsBox
-            containerClassName="w-full sm:bg-paleBlue sm:border sm:border-lightGray sm:rounded-sm"
+            containerClassName="w-full sm:border bg-gray bg-opacity-40 sm:rounded-md"
             name="Current Stake"
             value={currentStake * stakingTokenPrice}
             units="USD"
@@ -97,7 +97,7 @@ export const MyStats = () => {
 
         <GeyserStatsBoxContainer>
           <GeyserMultiStatsBox
-            containerClassName="w-full sm:bg-paleBlue sm:border sm:border-lightGray sm:rounded-sm"
+            containerClassName="w-full sm:border bg-gray bg-opacity-40 sm:rounded-md"
             name="Current Rewards"
             stats={rewardsToShow}
             interpolate={(val) => safeNumeral(val, '0.000')}
@@ -109,12 +109,12 @@ export const MyStats = () => {
 }
 
 const MyStatsContainer = styled.div`
-  ${tw`px-5 my-5 pr-0 border-r-2 border-lightGray`}
+  ${tw`px-5 my-5 pr-0 border-r-2 border-white border-opacity-10`}
 `
 
 const Header = styled.h3`
   ${ResponsiveText}
-  ${tw`uppercase flex text-black font-medium sm:pl-3`}
+  ${tw`uppercase flex text-white font-medium sm:pl-3`}
 `
 
 const GeyserStatsContainer = styled.div`

@@ -11,12 +11,12 @@ interface Props {
 
 export const TabView: React.FC<Props> = ({ active, tabs, onChange }) => {
   const StyledTabList = styled(Tab.List)`
-    ${tw`relative rounded m-auto flex border`}
+    ${tw`relative rounded-md m-auto flex border border-white border-opacity-20 overflow-hidden`}
   `
 
   const StyledTab = styled(Tab)`
-    ${tw`outline-none  focus:outline-none border border-darkGray border-opacity-50`}
-    ${tw`font-bold uppercase z-10 h-full block self-center`}
+    ${tw`outline-none  focus:outline-none`}
+    ${tw`font-medium uppercase z-10 h-full block self-center`}
   `
 
   const FlexTabWidth2 = styled(StyledTab)`
@@ -33,7 +33,7 @@ export const TabView: React.FC<Props> = ({ active, tabs, onChange }) => {
     <Tab.Group onChange={onChange}>
       <StyledTabList className="h-14">
         {tabs.map((t, i) => (
-          <StyledFlexTab key={t} className={`${active === i ? 'bg-lightBlue text-white' : 'text-darkGray'}`}>
+          <StyledFlexTab key={t} className={`text-white ${active === i ? 'bg-primary' : ''}`}>
             {t}
           </StyledFlexTab>
         ))}

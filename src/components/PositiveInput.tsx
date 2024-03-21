@@ -52,7 +52,7 @@ export const PositiveInput: React.FC<Props> = (props) => {
 }
 
 const Container = styled.div`
-  ${tw`flex flex-row border border-gray h-fit mb-3 mt-1 rounded-md`}
+  ${tw`flex flex-row border border-white border-opacity-20 h-fit mb-3 mt-1 rounded-md overflow-hidden`}
 `
 
 const Input = styled.input`
@@ -64,10 +64,12 @@ const Input = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
-  ${tw`w-10/12 font-semibold tracking-wider rounded-lg p-3 text-base`}
+  flex-grow: 1;
+
+  ${tw`w-10/12 font-semibold tracking-wider rounded-lg p-3 text-sm bg-gray placeholder:text-textGray`}
   ${tw`focus:outline-none`}
 `
 
 const Button = styled.button`
-  ${tw`uppercase focus:outline-none p-1 text-sm w-2/12 text-link bg-0D23EE bg-opacity-5`}
+  ${tw`uppercase focus:outline-none p-1 text-sm w-2/12 text-white bg-0D23EE bg-opacity-5 bg-primary flex-shrink-0`}
 `

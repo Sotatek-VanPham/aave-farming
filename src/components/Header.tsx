@@ -2,11 +2,12 @@ import { AppContext } from 'context/AppContext'
 import { useContext } from 'react'
 import styled from 'styled-components/macro'
 import tw from 'twin.macro'
-import logo from 'assets/wordmark-seamless.svg'
+import logo from 'assets/logo.svg'
 import { Mode } from '../constants'
 import { HeaderWalletButton } from './HeaderWalletButton'
 import { HeaderToggle } from './HeaderToggle'
-import { HeaderNetworkSelect } from './HeaderNetworkSelect'
+import SettingButton from './SettingButton'
+// import { HeaderNetworkSelect } from './HeaderNetworkSelect'
 
 const SEAMLESS_INTERFACE_URL = `https://app.seamlessprotocol.com`
 
@@ -22,48 +23,49 @@ export const Header = () => {
         </LogoSpan>
         <LeftLinkContainer>
           <a href={`${SEAMLESS_INTERFACE_URL}`}>
-            <span className="text-white text-[6px] font-bold md:text-sm">Dashboard</span>
+            <span className="text-white text-sm font-medium md:text-base">Dashboard</span>
           </a>
           <a href={`${SEAMLESS_INTERFACE_URL}/markets`}>
-            <span className="text-white text-[6px] font-bold md:text-sm">Markets</span>
+            <span className="text-white text-sm font-medium md:text-base">Markets</span>
           </a>
-          <div>
-            <span className="text-white text-[6px] font-bold underline cursor-pointer md:text-sm">Staking Farms</span>
+          <div className='activeLink'>
+            <span className="text-white text-sm font-medium  cursor-pointer md:text-base">Staking Farms</span>
           </div>
         </LeftLinkContainer>
       </LeftContainer>
       <MiddleContainer>
         <MiddleLinkContainer>
           <a href={`${SEAMLESS_INTERFACE_URL}`}>
-            <span className="text-white text-[6px] font-bold md:text-sm">Dashboard</span>
+            <span className="text-white text-sm font-medium md:text-base">Dashboard</span>
           </a>
           <a href={`${SEAMLESS_INTERFACE_URL}/markets`}>
-            <span className="text-white text-[6px] font-bold md:text-sm">Markets</span>
+            <span className="text-white text-sm font-medium md:text-base">Markets</span>
           </a>
           <div>
-            <span className="text-white text-[6px] font-bold underline cursor-pointer md:text-sm">Staking Farms</span>
+            <span className="text-white text-sm font-medium cursor-pointer md:text-base">Staking Farms</span>
           </div>
         </MiddleLinkContainer>
         <HeaderToggle enabled={mode === Mode.VAULTS} toggle={toggleMode} options={['Single Farm View', 'Asset View']} />
       </MiddleContainer>
       <RightContainer>
-        <HeaderNetworkSelect />
+        {/* <HeaderNetworkSelect /> */}
         <HeaderWalletButton />
+        <SettingButton />
       </RightContainer>
     </Container>
   )
 }
 
 const LogoImage = styled.img`
-  ${tw`w-full h-36 -my-16 -ml-2 sm:ml-0`}
+  ${tw`w-auto sm:ml-0`}
 `
 
 const LinkContainer = styled.div`
-  ${tw`flex flex-wrap justify-center gap-1 md:flex-col md:flex-row md:gap-2 lg:gap-4 xl:gap-8`}
+  ${tw`hidden lg:flex flex-wrap justify-center gap-1 md:flex-col md:flex-row md:gap-2 lg:gap-4 xl:gap-8`}
 `
 
 const LeftLinkContainer = styled(LinkContainer)`
-  ${tw`hidden lg:flex`}
+  ${tw`hidden lg:flex h-full items-center`}
 `
 
 const MiddleLinkContainer = styled(LinkContainer)`
@@ -71,7 +73,8 @@ const MiddleLinkContainer = styled(LinkContainer)`
 `
 
 const Container = styled.div`
-  ${tw`shadow-sm flex flex-wrap py-1 -mt-1 h-fit text-white bg-header`}
+  height: 50.89px;
+  ${tw`shadow-sm flex items-center justify-between flex-wrap  text-white bg-gray bg-opacity-50 `}
 `
 
 const LogoSpan = styled.span`
@@ -80,15 +83,33 @@ const LogoSpan = styled.span`
 `
 
 const LeftContainer = styled.div`
-  ${tw`flex w-auto justify-center items-center md:gap-2 lg:gap-4 xl:gap-8 `}
+  ${tw`flex w-auto justify-center items-center h-full md:gap-2 lg:gap-4 xl:gap-8 `}
   ${tw`header-wrap:w-4/12`}
+
+  .activeLink {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    ${tw`h-full items-center flex relative`}
+
+    &:after {
+      content: '';
+      border-radius: 10px;
+
+      ${tw`h-1 bg-primary w-full absolute top-full left-0`}
+
+
+    }
+
+  }
 `
 
 const MiddleContainer = styled.div`
-  ${tw`flex flex-col xl:flex-row items-center justify-center w-full order-3 py-2 gap-4`}
+  ${tw`flex flex-col xl:flex-row items-center justify-center w-full order-3  gap-4`}
   ${tw`header-wrap:py-0 header-wrap:max-w-[830px] header-wrap:mx-auto header-wrap:order-2 header-wrap:w-1/3 xl:w-4/12`}
 `
 const RightContainer = styled.div`
-  ${tw`ml-auto order-2 w-auto flex flex-wrap`}
+  gap: 6px;
+  ${tw`ml-auto  w-auto flex flex-wrap items-center justify-end pr-4`}
   ${tw`header-wrap:ml-0 header-wrap:order-3 header-wrap:w-4/12`}
 `

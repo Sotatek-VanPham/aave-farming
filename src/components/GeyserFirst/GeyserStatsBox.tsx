@@ -43,8 +43,10 @@ export const GeyserStatsBox: React.FC<Props> = ({ name, value: targetValue, unit
 }
 
 const GeyserStatsBoxContainer = styled.div`
-  ${tw`h-40px`}
+  ${tw`h-40px text-white text-xs`}
   ${tw`sm:mr-5 sm:p-3 sm:h-72px`}
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
 `
 
 const GeyserStatsBoxLabel = styled.span`

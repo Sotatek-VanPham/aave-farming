@@ -34,11 +34,11 @@ export const GeyserFirstContainer = () => {
   )
 }
 const StyledOverlay = styled(Overlay)`
-  ${tw`bg-white text-black`}
+  ${tw` text-white bg-gray bg-opacity-40`}
 `
 
 const Container = styled.div`
-  ${tw`text-center m-auto mb-20 flex flex-col flex-wrap w-full`}
+  ${tw`text-center m-auto  flex flex-col flex-wrap w-full`}
   ${tw`sm:w-sm`}
 `
 

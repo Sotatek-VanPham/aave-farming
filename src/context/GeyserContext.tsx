@@ -46,11 +46,11 @@ export const GeyserContext = createContext<{
     bonusTokensInfo: [],
     isWrapped: false,
   },
-  selectGeyser: () => {},
-  selectGeyserById: () => {},
-  selectGeyserByName: () => {},
+  selectGeyser: () => { },
+  selectGeyserById: () => { },
+  selectGeyserByName: () => { },
   geyserAction: GeyserAction.STAKE,
-  updateGeyserAction: () => {},
+  updateGeyserAction: () => { },
   handleStakeUnstake: async () => undefined,
   handleWrapping: async () => undefined,
   allTokensInfos: [],
@@ -188,66 +188,66 @@ export const GeyserContextProvider: React.FC = ({ children }) => {
       const ids = geyserConfigs.map((geyser) => geyser.address.toLowerCase())
       currentGeysers.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
       setGeysers(currentGeysers)
-      ;(async () => {
-        try {
-          // staking and reward tokens might have custom logic for name / symbol
-          const geyserAddressToConfig = new Map(
-            geyserConfigs.map(({ address, stakingToken, rewardToken }) => [
-              toChecksumAddress(address),
-              { stakingToken, rewardToken },
-            ]),
-          )
-
-          const geyserTokens = currentGeysers.map(({ id, stakingToken, rewardToken }) => ({
-            ...geyserAddressToConfig.get(toChecksumAddress(id))!,
-            stakingTokenAddress: stakingToken,
-            rewardTokenAddress: rewardToken,
-          }))
-
-          const geyserTokensSet = new Set(
-            currentGeysers.flatMap(({ stakingToken, rewardToken }) =>
-              [stakingToken, rewardToken].map(toChecksumAddress),
-            ),
-          )
-          const rewardTokens = await Promise.all(
-            geyserTokens.map(({ rewardToken, rewardTokenAddress }) =>
-              getRewardTokenInfo(rewardTokenAddress, rewardToken, signerOrProvider),
-            ),
-          )
-          const stakingTokens = await Promise.all(
-            geyserTokens.map(({ stakingToken, stakingTokenAddress }) =>
-              getStakingTokenInfo(stakingTokenAddress, stakingToken, signerOrProvider),
-            ),
-          )
-
-          // calculate if geysers are active or not
-          const geyserActivityPromise = currentGeysers.map(async (geyser, g) => {
-            const geyserStats = await getGeyserStats(geyser, stakingTokens[g], rewardTokens[g], [])
-            return geyserStats.duration > 0
-          })
-          const geyserActivity = await Promise.all(geyserActivityPromise)
-          geyserActivity.forEach((a, g) => {
-            currentGeysers[g].active = a
-          })
-          setGeysers(currentGeysers)
-
-          // all relevant tokens: includes additional tokens from config/additionalTokens.ts and all staking & reward tokens from all geysers
-          const additionalTokens = getAdditionalTokensList(networkId)
-          const additionalTokensInfos = (
-            await Promise.allSettled(
-              additionalTokens
-                .filter(({ enabled, address }) => enabled && !geyserTokensSet.has(toChecksumAddress(address)))
-                .map(({ address }) => getTokenInfo(address, signerOrProvider)),
+        ; (async () => {
+          try {
+            // staking and reward tokens might have custom logic for name / symbol
+            const geyserAddressToConfig = new Map(
+              geyserConfigs.map(({ address, stakingToken, rewardToken }) => [
+                toChecksumAddress(address),
+                { stakingToken, rewardToken },
+              ]),
             )
-          )
-            .filter(({ status }) => status === 'fulfilled')
-            .map((result) => (result as PromiseFulfilledResult<TokenInfo>).value)
-          const newAllTokensInfos = additionalTokensInfos.concat(stakingTokens).concat(rewardTokens)
-          setAllTokensInfos(newAllTokensInfos)
-        } catch (e) {
-          console.error(e)
-        }
-      })()
+
+            const geyserTokens = currentGeysers.map(({ id, stakingToken, rewardToken }) => ({
+              ...geyserAddressToConfig.get(toChecksumAddress(id))!,
+              stakingTokenAddress: stakingToken,
+              rewardTokenAddress: rewardToken,
+            }))
+
+            const geyserTokensSet = new Set(
+              currentGeysers.flatMap(({ stakingToken, rewardToken }) =>
+                [stakingToken, rewardToken].map(toChecksumAddress),
+              ),
+            )
+            const rewardTokens = await Promise.all(
+              geyserTokens.map(({ rewardToken, rewardTokenAddress }) =>
+                getRewardTokenInfo(rewardTokenAddress, rewardToken, signerOrProvider),
+              ),
+            )
+            const stakingTokens = await Promise.all(
+              geyserTokens.map(({ stakingToken, stakingTokenAddress }) =>
+                getStakingTokenInfo(stakingTokenAddress, stakingToken, signerOrProvider),
+              ),
+            )
+
+            // calculate if geysers are active or not
+            const geyserActivityPromise = currentGeysers.map(async (geyser, g) => {
+              const geyserStats = await getGeyserStats(geyser, stakingTokens[g], rewardTokens[g], [])
+              return geyserStats.duration > 0
+            })
+            const geyserActivity = await Promise.all(geyserActivityPromise)
+            geyserActivity.forEach((a, g) => {
+              currentGeysers[g].active = a
+            })
+            setGeysers(currentGeysers)
+
+            // all relevant tokens: includes additional tokens from config/additionalTokens.ts and all staking & reward tokens from all geysers
+            const additionalTokens = getAdditionalTokensList(networkId)
+            const additionalTokensInfos = (
+              await Promise.allSettled(
+                additionalTokens
+                  .filter(({ enabled, address }) => enabled && !geyserTokensSet.has(toChecksumAddress(address)))
+                  .map(({ address }) => getTokenInfo(address, signerOrProvider)),
+              )
+            )
+              .filter(({ status }) => status === 'fulfilled')
+              .map((result) => (result as PromiseFulfilledResult<TokenInfo>).value)
+            const newAllTokensInfos = additionalTokensInfos.concat(stakingTokens).concat(rewardTokens)
+            setAllTokensInfos(newAllTokensInfos)
+          } catch (e) {
+            console.error(e)
+          }
+        })()
     }
   }, [geyserData])
 

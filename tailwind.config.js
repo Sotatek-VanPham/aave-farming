@@ -1,6 +1,7 @@
 // TODO: Use theme config over defining custom styles as much as possible
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html', '*'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
@@ -17,10 +18,10 @@ module.exports = {
     },
     colors: {
       // TODO
-      primary: '#912DFF',
-      secondary: '#FFFFFF',
+      primary: '#DA3E3E',
+      secondary: '#484A77',
       lightGray: '#DDDDDD',
-      gray: '#979797',
+      gray: '#1B1B1D',
       mediumGray: '#4A4A4A',
       darkGray: '#1D1D1D',
       lightBlack: '#363636',
@@ -37,6 +38,7 @@ module.exports = {
       cream: '#F8F0E5',
       lightBlue: '#3AB0FF',
       surface: '#77037B',
+      textGray: '#999EBA'
     },
     container: {
       center: true,
@@ -81,6 +83,9 @@ module.exports = {
       maxWidth: {
         '830px': '830px',
       },
+      backgroundImage: {
+        'image': "url('assets/bg.svg')"
+      }
     },
   },
   variants: {

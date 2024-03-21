@@ -5,7 +5,7 @@ import { activeNetworks, getConnectionConfig } from 'config/app'
 import { Option, Select } from 'components/Select'
 import Web3Context from 'context/Web3Context'
 
-interface Props {}
+interface Props { }
 
 export const HeaderNetworkSelect: React.FC<Props> = () => {
   const { selectNetwork, networkId } = useContext(Web3Context)
@@ -20,6 +20,7 @@ export const HeaderNetworkSelect: React.FC<Props> = () => {
 
   return (
     <SelectContainer>
+
       <Select
         options={networkOptions}
         selected={selected}
