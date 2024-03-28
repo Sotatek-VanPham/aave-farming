@@ -100,7 +100,7 @@ const Container = styled.div`
 `
 
 const ContentContainer = styled.div`
-  ${tw`inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl`}
+  ${tw`inline-block  w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl`}
 `
 
 const MessageContainer = styled.div`

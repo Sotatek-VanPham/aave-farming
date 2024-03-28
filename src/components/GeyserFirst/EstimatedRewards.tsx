@@ -97,7 +97,7 @@ const EstimatedRewardsContainer = styled.div`
 
 const ColoredDiv = styled.div`
   ${tw`rounded-l-sm h-full w-4`}
-  background: linear-gradient(248.86deg, #506FF3 10%, #D69BDD 40%,  #21E1E1 61%,  #CDF3A2 91%);
+  background: #DA3E3E;
 `
 
 const Icon = styled.img`

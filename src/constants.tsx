@@ -41,28 +41,30 @@ export enum TxState {
 
 // Staking tokens
 export enum StakingToken {
-  UNISWAP_V2,
-  SUSHI_SWAP,
-  SO_SWAP,
-  // for testing
-  MOCK,
-  WAMPL,
-  OG_POINTS,
+  // UNISWAP_V2,
+  // SUSHI_SWAP,
+  // SO_SWAP,
+  // // for testing
+  // MOCK,
+  // WAMPL,
+  // OG_POINTS,
 
   // for mainnet
   // TODO
-  BASESWAP,
-  SEAMLESS_ATOKEN,
+  // BASESWAP,
+  // SEAMLESS_ATOKEN,
+  MOCK
 }
 
 // Reward tokens
 export enum RewardToken {
-  SEAM,
-  // for testing
-  MOCK,
+  // SEAM,
+  // // for testing
+  // MOCK,
 
-  // for mainnet
-  OG_POINTS,
+  // // for mainnet
+  // OG_POINTS,
+  AMPL
 }
 
 // Netowrks
@@ -123,7 +125,7 @@ export const TENDERLY_PROJECT_ID = '1SVyxsO1IHL8NHPgMyQmuF'
 
 export const DEFAULT_RPC_ENDPOINT =
   process.env.NODE_ENV === 'development'
-    ? `https://rpc.coredao.org`
+    ? process.env.REACT_APP_RPC_MAINNET
     : 'https://rpc.coredao.org'
 
 // Other RPC endpoints for reference

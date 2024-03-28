@@ -50,6 +50,7 @@ const Heading = styled.div`
 const Label = styled.span`
   ${ResponsiveText}
   ${tw`tracking-wider`}
+  color: #fff
 `
 
 const Img = styled.img`
@@ -60,5 +61,5 @@ const Img = styled.img`
 const SelectedOption = styled.span`
   ${ResponsiveText}
   ${Ellipsis}
-  ${tw`font-bold tracking-wide block my-2 w-336px`}
+  ${tw`font-bold tracking-wide block my-2 w-336px text-white`}
 `

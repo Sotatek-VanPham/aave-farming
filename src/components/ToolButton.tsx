@@ -16,6 +16,9 @@ export const ToolButton: React.FC<Props> = ({ classNames, displayText, onClick, 
 
 const Button = styled.button`
   ${ResponsiveSubText}
-  ${tw`p-0 inline-flex uppercase text-link`}
+  ${tw`p-0 inline-flex uppercase text-link text-primary`}
   ${tw`hover:underline`}
+  &:focus {
+    outline: none
+  }
 `

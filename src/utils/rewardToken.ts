@@ -16,11 +16,11 @@ export const getRewardTokenInfo = async (
   signerOrProvider: SignerOrProvider,
 ) => {
   switch (token) {
-    case RewardToken.SEAM:
-      return getBasicToken(tokenAddress, signerOrProvider)
-    case RewardToken.MOCK:
-      return getBasicToken(tokenAddress, signerOrProvider)
-    case RewardToken.OG_POINTS:
+    // case RewardToken.SEAM:
+    //   return getBasicToken(tokenAddress, signerOrProvider)
+    // case RewardToken.MOCK:
+    //   return getBasicToken(tokenAddress, signerOrProvider)
+    case RewardToken.AMPL:
       return getBasicToken(tokenAddress, signerOrProvider)
     default:
       throw new Error(`Handler for ${token} not found`)

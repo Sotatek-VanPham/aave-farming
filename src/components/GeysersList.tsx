@@ -64,5 +64,5 @@ const Heading = styled.div`
 
 const Label = styled.span`
   ${ResponsiveText}
-  ${tw`tracking-wider`}
+  ${tw`tracking-wider text-white`}
 `

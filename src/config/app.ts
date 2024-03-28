@@ -1,4 +1,4 @@
-import { Network, DEFAULT_RPC_ENDPOINT } from '../constants'
+import { Network, DEFAULT_RPC_ENDPOINT, RewardToken, StakingToken } from '../constants'
 import {
   AppGeysersList,
   NetworkConfig,
@@ -15,8 +15,8 @@ const networkConfig: NetworkConfig = {
     chainId: 1116,
     ref: 'core',
     name: 'Core',
-    rpcUrl: DEFAULT_RPC_ENDPOINT,
-    graphUrl: 'https://subgraph.satsuma-prod.com/cb8cc6f077f3/wesleys-team/seamless-farms/api',
+    rpcUrl: DEFAULT_RPC_ENDPOINT || '',
+    graphUrl: process.env.REACT_APP_SUBGRAPH_MAINNET || '',
     explorerUrl: 'https://scan.coredao.org',
     nativeCurrency: {
       name: 'Core',
@@ -27,11 +27,11 @@ const networkConfig: NetworkConfig = {
   [Network.CoreTestNet]: {
     id: Network.CoreTestNet,
     networkId: 1115,
-    chainId: 1116,
+    chainId: 1115,
     ref: 'core_testnet',
     name: 'Core Testnet',
-    rpcUrl: 'https://rpc.test.btcs.network',
-    graphUrl: 'https://api.studio.thegraph.com/query/51577/seamless-geyser/version/latest',
+    rpcUrl: process.env.REACT_APP_RPC_TESTNET || '',
+    graphUrl: process.env.REACT_APP_SUBGRAPH_TESTNET || '',
     explorerUrl: 'https://scan.test.btcs.network',
     nativeCurrency: {
       name: 'Core',
@@ -109,13 +109,13 @@ const geyserList: AppGeysersList = {
     // },
   ],
   [Network.CoreTestNet]: [
-    // {
-    //   name: 'Test',
-    //   address: '0x18ec4E75E276981bd0c1929DC400DBEA60Ea7bF5',
-    //   stakingToken: StakingToken.MOCK,
-    //   rewardToken: RewardToken.MOCK,
-    //   isWrapped: false,
-    // },
+    {
+      name: 'Truong Quang Thinh',
+      address: '0xf6f0258812ac174251a1ecd2d1e2cf9bf45d3764',
+      stakingToken: StakingToken.MOCK,
+      rewardToken: RewardToken.AMPL,
+      isWrapped: false,
+    },
     // {
     //   name: 'WETH aToken - OG Points',
     //   address: '0x1887f68767aC948c5d4AD94A95062D5Fe47CbA90',
